@@ -34,3 +34,7 @@ Prettier, Eslint 초기 설정이 매우 귀찮음
 `npm run lint` 를 실행하게 되면 전체 vue 파일에 적용됨 - 개꿀!  
 
 프로젝트 소스 레벨에서 eslint, prettier 포멧을 관리해야 생산성이 높아짐  
+
+## 파일 상대/ 절대 경로
+`@/` 절대경로로 컴포넌트 import 가능함 -> vscode에서 가능  
+기본적으로 vue project를 생성할 때, jsconfig.json 파일에 설정되어 있음 
