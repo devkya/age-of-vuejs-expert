@@ -4,9 +4,10 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 export default new VueRouter({
-	mode: 'history',
+	mode: 'history', // #이 붙어있는 이유는
 	routes: [
 		{
+			// redirect page
 			path: '/',
 			redirect: '/login',
 		},
@@ -19,6 +20,7 @@ export default new VueRouter({
 			component: () => import('@/views/SignupPage.vue'),
 		},
 		{
+			// 잘못된 url 입력시
 			path: '*',
 			component: () => import('@/views/NotFoundPage.vue'),
 		},
