@@ -1,5 +1,5 @@
 <template>
-	<div>Sign up</div>
+	<div>Page is not found!</div>
 </template>
 
 <script>

@@ -93,6 +93,11 @@ module.exports = {
 ```javascript
 export default new VueRouter({
 	routes: [
+
+        {
+			path: '/',
+			redirect: '/login',
+		},
 		{
 			path: '/login',
 			component: LoginPage,
@@ -101,8 +106,24 @@ export default new VueRouter({
 			path: './signup',
 			component: SignupPage,
 		},
+        {
+			path: '*',
+			component: () => import('@/views/NotFoundPage.vue'),
+		},
 	],
 });
 ```   
 2. main.js -> router 등록
 3. views folder -> view file 생성(컴포넌트)
+
+
+### Code Splitting
+[Code Splitting 링크](https://webpack.js.org/guides/code-splitting/)  
+[다이나믹 임포트 링크](https://vuejs.org/guide/built-ins/keep-alive.html#ad)
+앱이 커짐에 따라 번들은 커짐. 큰 번들로 묶이지 않으려면 번들을 `code splitting` 하는 것이 좋음  
+사용자가 현재 필요로하는 것들만 `lazy-load`할 수 있으므로 앱 성능 향상시킬 수 있음  
+```javascript
+component: () => import('@/views/LoginPage.vue'),
+```
+
+
