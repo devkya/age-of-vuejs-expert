@@ -22,7 +22,7 @@ mongoose.connect(
   'mongodb+srv://test:1234@cluster0.msaq9xo.mongodb.net/?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: false,
   },
 );
 mongoose.Promise = global.Promise;
@@ -30,7 +30,7 @@ mongoose.Promise = global.Promise;
 // server setup
 let port;
 async function configServer() {
-  port = 3001 || (await detectPort(3001));
+  port = 3000 || (await detectPort(3000));
 }
 configServer();
 
