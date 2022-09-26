@@ -31,10 +31,63 @@ End date : 2022-09-30
 Eslint와 Prettier가 충돌이 나기 때문에 반드시 .eslintrc.js 에 Prettier 설정을 해야함
 Prettier, Eslint 초기 설정이 매우 귀찮음  
 초기 설정 포멧을 정해놓고 사용하면 좋을듯  
-`npm run lint` 를 실행하게 되면 전체 vue 파일에 적용됨 - 개꿀!  
+`npm run lint` 를 실행하게 되면 전체 vue 파일에 적용됨 - 개꿀! 
+위의 명령어는 npm version 14.0.0 이후부터 사용 가능함 
 
 프로젝트 소스 레벨에서 eslint, prettier 포멧을 관리해야 생산성이 높아짐  
+
+### eslint & prettier 설정 방법
+1. nvm 설치 -> node version 관리
+2. vscode Extension - prettier, eslint 설치
+3. prettier는 disable(workspace)해주고 prettier 규칙은 .eslintrc.js 에 포함시켜줌
+```javascript
+'prettier/prettier': [
+			'error',
+			{
+				singleQuote: true,
+				semi: true,
+				useTabs: true,
+				tabWidth: 2,
+				trailingComma: 'all',
+				printWidth: 80,
+				bracketSpacing: true,
+				arrowParens: 'avoid',
+			},
+		],
+```
+4. setting -> eslint:validate 검색 -> settings.json 
+```javascript
+   "eslint.validate": [   
+      "vue",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+    "eslint.workingDirectories": [
+      {"mode": "auto"}
+    ],
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    // don't format on save
+    "editor.formatOnSave": false
+}
+```
+5. formatOnSave 체크박스 해제 
+6. vscode 최상위 폴더 -> vue.config.js 파일 생성
+```javascript
+module.exports = {
+  devServer: {
+    overlay: false, // 여기서 overlay: false는 오류를 더이상 화면에 표시하지 않겠다는 말임.
+  },
+};
+```
 
 ## 파일 상대/ 절대 경로
 `@/` 절대경로로 컴포넌트 import 가능함 -> vscode에서 가능  
 기본적으로 vue project를 생성할 때, jsconfig.json 파일에 설정되어 있음 
+
+## Router
+
+src 하위 routes folder -> index.js 생성  
