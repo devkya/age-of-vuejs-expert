@@ -12,11 +12,13 @@
 			<label for="nickname">nickname : </label>
 			<input id="nickname" type="text" v-model="nickname" />
 		</div>
-		<button type="submit">Login</button>
+		<button type="submit">회원가입</button>
 	</form>
 </template>
 
 <script>
+import { registerUser } from '@/api/index';
+
 export default {
 	data() {
 		return {
@@ -26,8 +28,21 @@ export default {
 		};
 	},
 	methods: {
-		submitForm() {
-			console.log('Submit Form');
+		async submitForm() {
+			const userData = {
+				username: this.username,
+				password: this.password,
+				nickname: this.nickname,
+			};
+			const { data } = await registerUser(userData);
+			console.log(data);
+			this.initForm();
+		},
+
+		initForm() {
+			this.username = '';
+			this.password = '';
+			this.nickname = '';
 		},
 	},
 };

@@ -1,4 +1,4 @@
-# (Inflearn) Vue.js 끝장내기
+# [인프런 Vue.js 끝장내기 강좌]
 
 Start date : 2022-09-21
 End date : 2022-09-30
@@ -124,6 +124,30 @@ export default new VueRouter({
 사용자가 현재 필요로하는 것들만 `lazy-load`할 수 있으므로 앱 성능 향상시킬 수 있음  
 ```javascript
 component: () => import('@/views/LoginPage.vue'),
+```
+
+## Axios
+API는 따로 폴더를 만들어 관리하는 것이 좋음  
+src -> api -> index.js  
+.then().catch()를 사용하지 않고 `async``await`를 이용하여 response를 받을 수 있음  
+[async & await 링크](https://joshua1988.github.io/web-development/javascript/js-async-await/)  
+
+### 구조 분해 문법(Destructuring)
+```javascript
+var josh = {
+  language: 'javascript',
+  position: 'front-end',
+  area: 'pangyo',
+  hobby: 'singing',
+  age: '102'
+};
+
+var { language, position, area, hobby, age } = josh;
+console.log(language); // javascript
+console.log(position); // front-end
+console.log(area); // pangyo
+console.log(hobby); // singing
+console.log(age); // 102
 ```
 
 
