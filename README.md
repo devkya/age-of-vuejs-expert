@@ -89,5 +89,20 @@ module.exports = {
 기본적으로 vue project를 생성할 때, jsconfig.json 파일에 설정되어 있음 
 
 ## Router
-
-src 하위 routes folder -> index.js 생성  
+1. src 하위 routes folder -> index.js 생성  
+```javascript
+export default new VueRouter({
+	routes: [
+		{
+			path: '/login',
+			component: LoginPage,
+		},
+		{
+			path: './signup',
+			component: SignupPage,
+		},
+	],
+});
+```   
+2. main.js -> router 등록
+3. views folder -> view file 생성(컴포넌트)
