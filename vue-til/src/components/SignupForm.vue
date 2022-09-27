@@ -12,14 +12,16 @@
 			<label for="nickname">nickname : </label>
 			<input id="nickname" type="text" v-model="nickname" />
 		</div>
-		<button type="submit">회원가입</button>
+		<button :disabled="!isUsernameVaild || !password" type="submit">
+			회원가입
+		</button>
 		<p>{{ logMessage }}</p>
 	</form>
 </template>
 
 <script>
 import { registerUser } from '@/api/index';
-
+import { validateEmail } from '@/utils/validation';
 export default {
 	data() {
 		return {
@@ -28,6 +30,11 @@ export default {
 			nickname: '',
 			logMessage: '',
 		};
+	},
+	computed: {
+		isUsernameVaild() {
+			return validateEmail(this.username);
+		},
 	},
 
 	methods: {
