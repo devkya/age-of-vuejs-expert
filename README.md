@@ -132,6 +132,13 @@ src -> api -> index.js
 .then().catch()를 사용하지 않고 `async``await`를 이용하여 response를 받을 수 있음  
 [async & await 링크](https://joshua1988.github.io/web-development/javascript/js-async-await/)  
 
+```javascript
+// API 설정 공통화
+const instance = axios.create({
+	baseURL: 'http://localhost:3000',
+});
+```
+
 ### 구조 분해 문법(Destructuring)
 ```javascript
 var josh = {
@@ -150,4 +157,8 @@ console.log(hobby); // singing
 console.log(age); // 102
 ```
 
-
+### Environment Variables
+`.env`, `.env.development`, `.env.production` 개발, 배포, 일반으로 환경변수를 세팅할 수 있음  
+`VUE_APP_` 접두어를 붙여야 vue-cli 가 인식함  
+사용방법 : `process.env.변수명`  
+우선순위 : env >= development = production
