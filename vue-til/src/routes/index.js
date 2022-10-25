@@ -13,10 +13,12 @@ export default new VueRouter({
 		},
 		{
 			path: '/login',
+			name: '로그인',
 			component: () => import('@/views/LoginPage.vue'),
 		},
 		{
 			path: '/signup',
+			name: '회원가입',
 			component: () => import('@/views/SignupPage.vue'),
 		},
 		{
